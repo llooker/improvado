@@ -1,30 +1,31 @@
-- dashboard: template_account_perfomance
-  title: Adwords Account Perfomance
+- dashboard: template_campaign_perfomance
+  title: Template Campaign Perfomance
   layout: grid
   rows:
     - elements: [logo]
       height: 100
     - elements: [title]
       height: 100
-    - elements: [chart_convs_clicks,pie_chart_clicks]
+    - elements: [chart_convs_clicks,pie_chart_conversions]
       height: 300
-    - elements: [adwords_account_perfomance_data_table]
+    - elements: [youtube_campaign_perfomance_data_table]
       height: 250
+
 
   filters:
     - name: date_start
       type: date_filter
-      explore: adset_adwords
-      field: adset_adwords.date_date
+      explore: adset_youtube
+      field: adset_youtube.date_date
 
   elements:
     - name: logo
       title: Logo
       type: single_value
       model: template_project
-      explore: adsets_adwords
-      dimensions: [adsets_adwords.product_image]
-      sorts: [adsets_adwords.product_image]
+      explore: adsets_youtube
+      dimensions: [adsets_youtube.product_image]
+      sorts: [adsets_youtube.product_image]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -62,6 +63,10 @@
       hide_totals: false
       hide_row_totals: false
       table_theme: white
+      enable_conditional_formatting: false
+      conditional_formatting_ignored_fields: []
+      conditional_formatting_include_totals: false
+      conditional_formatting_include_nulls: false
       ordering: none
       show_null_labels: false
       show_totals_labels: false
@@ -69,23 +74,22 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        adsets_adwords.date_date: Dates
-        adsets_adwords.click: Clicks
-        adsets_adwords.cpa: Cost/Conv
-        adsets_adwords.ctr: CTR %
-      x_axis_label: Dates
+        adsets_youtube.cpa: Cost/Conv
+        adsets_youtube.click: Clicks
+        adsets_youtube.ctr: CTR %
+        adsets_youtube.cpc: Avg CPC
       y_axis_orientation: [left, right]
-      inner_radius: 60
       colors: 'palette: Mixed Dark'
       series_colors: {}
+      inner_radius: 60
 
     - name: title
       title: Title
       type: single_value
       model: template_project
-      explore: adsets_adwords
-      dimensions: [adsets_adwords.title]
-      sorts: [adsets_adwords.title]
+      explore: adsets_youtube
+      dimensions: [adsets_youtube.title]
+      sorts: [adsets_youtube.title]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -123,6 +127,10 @@
       hide_totals: false
       hide_row_totals: false
       table_theme: white
+      enable_conditional_formatting: false
+      conditional_formatting_ignored_fields: []
+      conditional_formatting_include_totals: false
+      conditional_formatting_include_nulls: false
       ordering: none
       show_null_labels: false
       show_totals_labels: false
@@ -130,28 +138,26 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        adsets_adwords.date_date: Dates
-        adsets_adwords.click: Clicks
-        adsets_adwords.cpa: Cost/Conv
-        adsets_adwords.ctr: CTR %
-      x_axis_label: Dates
+        adsets_youtube.cpa: Cost/Conv
+        adsets_youtube.click: Clicks
+        adsets_youtube.ctr: CTR %
+        adsets_youtube.cpc: Avg CPC
       y_axis_orientation: [left, right]
-      inner_radius: 60
       colors: 'palette: Mixed Dark'
       series_colors: {}
+      inner_radius: 60
 
     - name: chart_convs_clicks
       title: Conversions & Clicks
       type: looker_line
       model: template_project
-      explore: adsets_adwords
-      dimensions: [adsets_adwords.date_date]
-      fill_fields: [adsets_adwords.date_date]
-      measures: [adsets_adwords.click, adsets_adwords.conversions]
+      explore: adsets_youtube
+      dimensions: [adsets_youtube.campaign_name]
+      measures: [adsets_youtube.conversions, adsets_youtube.click]
       filters:
-        adsets_adwords.account_id: '4508191176'
-        adsets_adwords.date_date: 2017/02/01 to 2017/02/15
-      sorts: [adsets_adwords.date_date]
+        adsets_youtube.account_id: '4508191176'
+        adsets_youtube.date_date: 2017/02/01 to 2017/02/15
+      sorts: [adsets_youtube.conversions desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -180,6 +186,10 @@
       hide_totals: false
       hide_row_totals: false
       table_theme: white
+      enable_conditional_formatting: false
+      conditional_formatting_ignored_fields: []
+      conditional_formatting_include_totals: false
+      conditional_formatting_include_nulls: false
       ordering: none
       show_null_labels: false
       show_totals_labels: false
@@ -187,24 +197,23 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        adsets_adwords.date_date: Dates
-        adsets_adwords.click: Clicks
-        adsets_adwords.cpa: Cost/Conv
-        adsets_adwords.ctr: CTR %
-      x_axis_label: Dates
+        adsets_youtube.cpa: Cost/Conv
+        adsets_youtube.click: Clicks
+        adsets_youtube.ctr: CTR %
+        adsets_youtube.cpc: Avg CPC
       y_axis_orientation: [left, right]
 
-    - name: pie_chart_clicks
-      title: Pie Chart Clicks
+    - name: pie_chart_conversions
+      title: Pie Chart Conversions
       type: looker_pie
       model: template_project
-      explore: adsets_adwords
-      dimensions: [adsets_adwords.adset_name]
-      measures: [adsets_adwords.click]
+      explore: adsets_youtube
+      dimensions: [adsets_youtube.campaign_name]
+      measures: [adsets_youtube.conversions]
       filters:
-        adsets_adwords.account_id: '4508191176'
-        adsets_adwords.date_date: 2017/02/01 to 2017/02/15
-      sorts: [adsets_adwords.click desc]
+        adsets_youtube.account_id: '4508191176'
+        adsets_youtube.date_date: 2017/02/01 to 2017/02/15
+      sorts: [adsets_youtube.conversions desc]
       limit: '10'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -235,6 +244,10 @@
       hide_totals: false
       hide_row_totals: false
       table_theme: white
+      enable_conditional_formatting: false
+      conditional_formatting_ignored_fields: []
+      conditional_formatting_include_totals: false
+      conditional_formatting_include_nulls: false
       ordering: none
       show_null_labels: false
       show_totals_labels: false
@@ -242,29 +255,29 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        adsets_adwords.date_date: Dates
-        adsets_adwords.click: Clicks
-        adsets_adwords.cpa: Cost/Conv
-        adsets_adwords.ctr: CTR %
-      x_axis_label: Dates
+        adsets_youtube.cpa: Cost/Conv
+        adsets_youtube.click: Clicks
+        adsets_youtube.ctr: CTR %
+        adsets_youtube.cpc: Avg CPC
       y_axis_orientation: [left, right]
-      inner_radius: 60
       colors: 'palette: Mixed Dark'
       series_colors: {}
+      inner_radius: 60
 
-    - name: adwords_account_perfomance_data_table
-      title: Adwords Account Perfomance Data Table
+
+    - name: youtube_campaign_perfomance_data_table
+      title: Youtube Campaign Perfomance Data Table
       type: table
       model: template_project
-      explore: adsets_adwords
-      dimensions: [adsets_adwords.date_date]
-      fill_fields: [adsets_adwords.date_date]
-      measures: [adsets_adwords.click, adsets_adwords.impressions, adsets_adwords.conversions,
-        adsets_adwords.cost, adsets_adwords.ctr, adsets_adwords.cpa, adsets_adwords.conv_rate]
+      explore: adsets_youtube
+      dimensions: [adsets_youtube.campaign_name]
+      measures: [adsets_youtube.conversions, adsets_youtube.cpa, adsets_youtube.conv_rate,
+        adsets_youtube.click, adsets_youtube.impressions, adsets_youtube.ctr, adsets_youtube.cpc,
+        adsets_youtube.cost]
       filters:
-        adsets_adwords.account_id: '4508191176'
-        adsets_adwords.date_date: 2017/02/01 to 2017/02/15
-      sorts: [adsets_adwords.date_date]
+        adsets_youtube.account_id: '4508191176'
+        adsets_youtube.date_date: 2017/02/01 to 2017/02/15
+      sorts: [adsets_youtube.conversions desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -275,6 +288,10 @@
       hide_row_totals: false
       table_theme: white
       limit_displayed_rows: false
+      enable_conditional_formatting: false
+      conditional_formatting_ignored_fields: []
+      conditional_formatting_include_totals: false
+      conditional_formatting_include_nulls: false
       stacking: ''
       show_value_labels: false
       label_density: 25
@@ -297,7 +314,7 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        adsets_adwords.date_date: Dates
-        adsets_adwords.click: Clicks
-        adsets_adwords.cpa: Cost/Conv
-        adsets_adwords.ctr: CTR %
+        adsets_youtube.cpa: Cost/Conv
+        adsets_youtube.click: Clicks
+        adsets_youtube.ctr: CTR %
+        adsets_youtube.cpc: Avg CPC
