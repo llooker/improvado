@@ -1,5 +1,5 @@
 - dashboard: template_campaign_perfomance
-  title: Template Campaign Perfomance
+  title: Youtube Campaign Perfomance
   layout: grid
   rows:
     - elements: [logo]
@@ -204,7 +204,7 @@
       y_axis_orientation: [left, right]
 
     - name: pie_chart_conversions
-      title: Pie Chart Conversions
+      title: Conversions by Product Type
       type: looker_pie
       model: template_project
       explore: adsets_youtube

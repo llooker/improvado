@@ -478,7 +478,7 @@
       single_value_title: Cost/Conv
 
     - name: chart_convs_clicks
-      title: Conversions & Clicks
+      title: Conversions & Clicks by Day
       type: looker_line
       model: template_project_campaigns
       explore: campaign_bindings
@@ -534,7 +534,7 @@
       series_colors: {}
 
     - name: pie_chart_cost
-      title: Pie Chart Cost
+      title: Cost Breakdown by Product Name
       type: looker_pie
       model: template_project_campaigns
       explore: campaign_bindings
@@ -591,7 +591,7 @@
       inner_radius: 60
 
     - name: pie_chart_conv
-      title: Pie Chart Conversions
+      title: Conversion Breakdown by Product Name
       type: looker_pie
       model: template_project_campaigns
       explore: campaign_bindings
@@ -648,7 +648,7 @@
       inner_radius: 60
 
     - name: campaign_lvl_data_table
-      title: Campaign Level Data Table
+      title: Campaign Level Metrics by Product Name
       type: table
       model: template_project_campaigns
       explore: campaign_bindings
