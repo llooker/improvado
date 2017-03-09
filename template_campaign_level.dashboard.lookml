@@ -346,7 +346,7 @@
         date_start: campaign_bindings.date_date
 
     - name: chart_convs_clicks
-      title: Conversions & Clicks
+      title: Conversions & Clicks by Day
       type: looker_line
       model: template_project_campaigns
       explore: campaign_bindings
@@ -402,7 +402,7 @@
         date_start: campaign_bindings.date_date
 
     - name: pie_chart_cost
-      title: Breakdown of Cost By Platforms
+      title: Cost Breakdown by Product Name
       type: looker_pie
       model: template_project_campaigns
       explore: campaign_bindings
@@ -459,7 +459,7 @@
         date_start: campaign_bindings.date_date
 
     - name: pie_chart_conv
-      title: Breakdown of Conversions By Platforms
+      title: Conversion Breakdown by Product Name
       type: looker_pie
       model: template_project_campaigns
       explore: campaign_bindings
@@ -516,7 +516,7 @@
         date_start: campaign_bindings.date_date
 
     - name: campaign_lvl_data_table
-      title: Campaign Level Data Table
+      title: Campaign Level Metrics by Product Name
       type: table
       model: template_project_campaigns
       explore: campaign_bindings
