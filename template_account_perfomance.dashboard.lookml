@@ -79,11 +79,11 @@
     - name: bar_chart_cost_clicks
       title: Breakdown of Top 10 Spent & Clicks By Adsets
       type: looker_bar
-      model: improvado
-      explore: adsets_103_adwords
-      dimensions: [adsets_103_adwords.adset_name]
-      measures: [adsets_103_adwords.cost, adsets_103_adwords.click]
-      sorts: [adsets_103_adwords.click desc]
+      model: template_project
+      explore: adsets_adwords
+      dimensions: [adsets_adwords.adset_name]
+      measures: [adsets_adwords.cost, adsets_adwords.click]
+      sorts: [adsets_adwords.click desc]
       limit: '10'
       column_limit: '50'
       query_timezone: America/Los_Angeles
