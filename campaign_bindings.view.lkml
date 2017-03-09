@@ -74,7 +74,7 @@ view: campaign_bindings {
     type: sum
     sql: ${spent} ;;
     drill_fields: [product_name, binding_name]
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   measure: impressions {
