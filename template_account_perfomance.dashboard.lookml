@@ -1,5 +1,5 @@
 - dashboard: template_account_perfomance
-  title: Adwords Account Perfomance
+  title: Template Account Perfomance
   layout: grid
   rows:
     - elements: [chart_convs_clicks,bar_chart_cost_clicks]

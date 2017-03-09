@@ -1,5 +1,5 @@
 - dashboard: template_campaign_level
-  title: Campaign Level
+  title: Template Campaign Level
   layout: grid
   rows:
     - elements: [total_spent, total_clicks, total_impressions, total_conversions, total_cpa]
