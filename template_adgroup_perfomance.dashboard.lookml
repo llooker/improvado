@@ -1,5 +1,5 @@
 - dashboard: template_adgroup_perfomance
-  title: Template Adgroup Perfomance
+  title: Template Bing Adgroup Perfomance
   layout: grid
   rows:
     - elements: [chart_convs_clicks,bar_chart_conversions_cost]

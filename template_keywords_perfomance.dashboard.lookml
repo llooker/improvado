@@ -1,5 +1,5 @@
 - dashboard: template_keywords_perfomance
-  title: Template Keywords Perfomance
+  title: Template Adwords Keywords Perfomance
   layout: grid
   rows:
     - elements: [adwords_keywords_perfomance_data_table]

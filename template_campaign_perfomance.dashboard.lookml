@@ -1,5 +1,5 @@
 - dashboard: template_campaign_perfomance
-  title: Template Campaign Perfomance
+  title: Template Youtube Campaign Perfomance
   layout: grid
   rows:
     - elements: [chart_convs_clicks,bar_chart_conversions_cost]
