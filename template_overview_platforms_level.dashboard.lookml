@@ -1,5 +1,5 @@
-- dashboard: template_campaign_level
-  title: Template Campaign Level
+- dashboard: template_overview_platforms_level
+  title: Template Overview Platforms Level
   layout: grid
   rows:
     - elements: [total_spent, total_clicks, total_impressions, total_conversions, total_cpa]
@@ -412,10 +412,10 @@
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
-      value_labels: none
-      label_type: labPer
+      value_labels: labels
+      label_type: labVal
       stacking: ''
-      value_labels: legend
+      show_value_labels: false
       label_density: 25
       legend_position: center
       x_axis_gridlines: false
@@ -469,10 +469,10 @@
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
-      value_labels: none
-      label_type: labPer
+      value_labels: labels
+      label_type: labVal
       stacking: ''
-      value_labels: legend
+      show_value_labels: false
       label_density: 25
       legend_position: center
       x_axis_gridlines: false

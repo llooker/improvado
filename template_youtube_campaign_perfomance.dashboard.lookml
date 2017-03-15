@@ -1,37 +1,37 @@
-- dashboard: template_adgroup_perfomance
-  title: Template Bing Adgroup Perfomance
+- dashboard: template_youtube_campaign_perfomance
+  title: Template Youtube Campaign Perfomance
   layout: grid
   rows:
     - elements: [chart_convs_clicks,bar_chart_conversions_cost]
       height: 400
-    - elements: [bing_adgroup_perfomance_data_table]
+    - elements: [youtube_campaign_perfomance_data_table]
       height: 250
 
 
   filters:
     - name: date_start
       type: date_filter
-      explore: adset_bing
-      field: adset_bing.date_date
+      explore: adset_youtube
+      field: adset_youtube.date_date
       default_value: 2017/02/01 to 2017/02/15
 
     - name: account_id
       type: string_filter
-      explore: adset_bing
+      explore: adset_youtube
       model: template_project
-      field: adset_bing.account_id
-      default_value: '31003674'
+      field: adset_youtube.account_id
+      default_value: '4508191176'
 
   elements:
     - name: chart_convs_clicks
-      title: Conversions & Clicks By Dates
+      title: Conversions & Clicks by Dates
       type: looker_line
       model: template_project
-      explore: adsets_bing
-      dimensions: [adsets_bing.date_date]
-      fill_fields: [adsets_bing.date_date]
-      measures: [adsets_bing.conversions, adsets_bing.click]
-      sorts: [adsets_bing.date_date]
+      explore: adsets_youtube
+      dimensions: [adsets_youtube.date_date]
+      fill_fields: [adsets_youtube.date_date]
+      measures: [adsets_youtube.conversions, adsets_youtube.click]
+      sorts: [adsets_youtube.date_date desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -71,24 +71,24 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        adsets_bing.cpa: Cost/Conv
-        adsets_bing.click: Clicks
-        adsets_bing.ctr: CTR %
-        adsets_bing.cpc: Avg CPC
+        adsets_youtube.cpa: Cost/Conv
+        adsets_youtube.click: Clicks
+        adsets_youtube.ctr: CTR %
+        adsets_youtube.cpc: Avg CPC
       y_axis_orientation: [left, right]
       x_axis_label: Dates
       listen:
-        date_start: adsets_bing.date_date
-        account_id: adsets_bing.account_id
+        date_start: adsets_youtube.date_date
+        account_id: adsets_youtube.account_id
 
     - name: bar_chart_conversions_cost
-      title: Breakdown of Top 10 Conversions & Spent by Adsets
+      title: Breakdown of Top 10 Conversions & Clicks By Campaign
       type: looker_bar
       model: template_project
-      explore: adsets_bing
-      dimensions: [adsets_bing.adset_name]
-      measures: [adsets_bing.conversions, adsets_bing.cost]
-      sorts: [adsets_bing.conversions desc]
+      explore: adsets_youtube
+      dimensions: [adsets_youtube.campaign_name]
+      measures: [adsets_youtube.conversions, adsets_youtube.cost]
+      sorts: [adsets_youtube.conversions desc]
       limit: '10'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -130,27 +130,29 @@
       conditional_formatting_include_nulls: false
       series_types: {}
       series_labels:
-        adsets_bing.cpa: Cost/Conv
-        adsets_bing.click: Clicks
-        adsets_bing.ctr: CTR %
-        adsets_bing.cpc: Avg CPC
+        adsets_youtube.cpa: Cost/Conv
+        adsets_youtube.click: Clicks
+        adsets_youtube.ctr: CTR %
+        adsets_youtube.cpc: Avg CPC
       y_axis_orientation: [left, right]
       colors: ['palette: Mixed Dark']
       series_colors: {}
       inner_radius: 60
       listen:
-        date_start: adsets_bing.date_date
-        account_id: adsets_bing.account_id
+        date_start: adsets_youtube.date_date
+        account_id: adsets_youtube.account_id
 
-    - name: bing_adgroup_perfomance_data_table
-      title: Bing Ad Group Perfomance Data Table
+
+    - name: youtube_campaign_perfomance_data_table
+      title: Youtube Campaign Perfomance Data Table
       type: table
       model: template_project
-      explore: adsets_bing
-      dimensions: [adsets_bing.adset_name]
-      measures: [adsets_bing.conversions, adsets_bing.cpa, adsets_bing.conv_rate, adsets_bing.click,
-        adsets_bing.impressions, adsets_bing.ctr, adsets_bing.cpc, adsets_bing.cost]
-      sorts: [adsets_bing.conversions desc]
+      explore: adsets_youtube
+      dimensions: [adsets_youtube.campaign_name]
+      measures: [adsets_youtube.conversions, adsets_youtube.cpa, adsets_youtube.conv_rate,
+        adsets_youtube.click, adsets_youtube.impressions, adsets_youtube.ctr, adsets_youtube.cpc,
+        adsets_youtube.cost]
+      sorts: [adsets_youtube.conversions desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -187,10 +189,10 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        adsets_bing.cpa: Cost/Conv
-        adsets_bing.click: Clicks
-        adsets_bing.ctr: CTR %
-        adsets_bing.cpc: Avg CPC
+        adsets_youtube.cpa: Cost/Conv
+        adsets_youtube.click: Clicks
+        adsets_youtube.ctr: CTR %
+        adsets_youtube.cpc: Avg CPC
       listen:
-        date_start: adsets_bing.date_date
-        account_id: adsets_bing.account_id
+        date_start: adsets_youtube.date_date
+        account_id: adsets_youtube.account_id

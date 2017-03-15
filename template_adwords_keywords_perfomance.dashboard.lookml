@@ -1,4 +1,4 @@
-- dashboard: template_keywords_perfomance
+- dashboard: template_adwords_keywords_perfomance
   title: Template Adwords Keywords Perfomance
   layout: grid
   rows:
