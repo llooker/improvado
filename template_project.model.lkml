@@ -13,6 +13,6 @@ explore: adsets_youtube {}
 
 explore: adsets_bing {}
 
-explore: ads_facebook {}
-
 explore: keywords_adwords {}
+
+explore: ads_facebook_view {}

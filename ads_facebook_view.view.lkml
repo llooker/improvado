@@ -1,5 +1,5 @@
-view: ads_facebook {
-  sql_table_name: public.ads_103_facebook ;;
+view: ads_facebook_view {
+  sql_table_name: public.ads_103_facebook_view ;;
 
   dimension: account_id {
     type: string
@@ -56,16 +56,6 @@ view: ads_facebook {
     sql: ${TABLE}.conv ;;
   }
 
-  dimension: conv_click_through {
-    type: number
-    sql: ${TABLE}.conv_click_through ;;
-  }
-
-  dimension: conv_view_through {
-    type: number
-    sql: ${TABLE}.conv_view_through ;;
-  }
-
   dimension: cost_per_10_sec_video_view {
     type: number
     sql: ${TABLE}.cost_per_10_sec_video_view ;;
@@ -95,14 +85,24 @@ view: ads_facebook {
     sql: ${TABLE}.imps ;;
   }
 
+  dimension: inline_post_engagement {
+    type: number
+    sql: ${TABLE}.inline_post_engagement ;;
+  }
+
   dimension: likes {
     type: number
     sql: ${TABLE}.likes ;;
   }
 
-  dimension: link_clicks {
+  dimension: mobile_click_through {
     type: number
-    sql: ${TABLE}.link_clicks ;;
+    sql: ${TABLE}.mobile_click_through ;;
+  }
+
+  dimension: mobile_view_through {
+    type: number
+    sql: ${TABLE}.mobile_view_through ;;
   }
 
   dimension: purchase {
@@ -150,6 +150,11 @@ view: ads_facebook {
     sql: ${TABLE}.total_actions ;;
   }
 
+  dimension: unique_inline_link_clicks {
+    type: number
+    sql: ${TABLE}.unique_inline_link_clicks ;;
+  }
+
   dimension: video_10_sec_watched_actions {
     type: number
     sql: ${TABLE}.video_10_sec_watched_actions ;;
@@ -195,6 +200,11 @@ view: ads_facebook {
     sql: ${TABLE}.video_p95_watched_actions ;;
   }
 
+  dimension: video_play {
+    type: number
+    sql: ${TABLE}.video_play ;;
+  }
+
   dimension: views {
     type: number
     sql: ${TABLE}.views ;;
@@ -202,39 +212,39 @@ view: ads_facebook {
   measure: cost {
     type: sum
     sql: ${spend} ;;
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
     value_format_name: usd
   }
 
   measure: freq {
     type: sum
     sql: ${frequency} ;;
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
     value_format_name: usd
   }
 
   measure: purchases {
     type: sum
     sql: ${purchase} ;;
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
     value_format_name: usd
   }
   measure: comment {
     type: sum
     sql: ${comments} ;;
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
   }
 
   measure: like {
     type: sum
     sql: ${likes} ;;
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
   }
 
   measure: conversions {
     type: sum
     sql: ${conv} ;;
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
   }
 
   measure: cpa {
@@ -258,13 +268,13 @@ view: ads_facebook {
   measure: impressions {
     type: sum
     sql: ${imps} ;;
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
   }
 
   measure: click {
     type: sum
     sql: ${clicks} ;;
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
   }
 
   measure: ctr {
@@ -297,8 +307,9 @@ view: ads_facebook {
   dimension: title {
     sql: ('Facebook Perfomance') ;;
   }
+
   measure: count {
     type: count
-    drill_fields: [adset_name, ad_name, campaign_name]
+    drill_fields: [campaign_name, adset_name, ad_name]
   }
 }

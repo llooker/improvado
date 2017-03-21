@@ -12,28 +12,28 @@
   filters:
     - name: date_start
       type: date_filter
-      explore: ads_facebook
-      field: ads_facebook.date_date
+      explore: ads_facebook_view
+      field: ads_facebook_view.date_date
       default_value: 2017/02/01 to 2017/02/15
 
     - name: account_id
       type: string_filter
-      explore: ads_facebook
+      explore: ads_facebook_view
       model: template_project
-      field: ads_facebook.account_id
-      default_value: act^_10150833513845892
+      field: ads_facebook_view.account_id
+      default_value: act_10150833513845892
 
   elements:
     - name: facebook_campaign_perfomance_data_table
       title: Facebook Campaign Perfomance Data Table
       type: table
       model: template_project
-      explore: ads_facebook
-      dimensions: [ads_facebook.campaign_name]
-      measures: [ads_facebook.impressions, ads_facebook.click, ads_facebook.cpc, ads_facebook.ctr,
-        ads_facebook.conversions, ads_facebook.cpa, ads_facebook.cpm, ads_facebook.cpp,
-        ads_facebook.cost, ads_facebook.freq]
-      sorts: [ads_facebook.impressions desc]
+      explore: ads_facebook_view
+      dimensions: [ads_facebook_view.campaign_name]
+      measures: [ads_facebook_view.impressions, ads_facebook_view.click, ads_facebook_view.cpc, ads_facebook_view.ctr,
+        ads_facebook_view.conversions, ads_facebook_view.cpa, ads_facebook_view.cpm, ads_facebook_view.cpp,
+        ads_facebook_view.cost, ads_facebook_view.freq]
+      sorts: [ads_facebook_view.impressions desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -70,25 +70,25 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        ads_facebook.click: Clicks
-        ads_facebook.cpc: avg CPC
-        ads_facebook.ctr: CTR %
-        ads_facebook.cpa: Cost/Conv
-        ads_facebook.freq: Frequency
+        ads_facebook_view.click: Clicks
+        ads_facebook_view.cpc: avg CPC
+        ads_facebook_view.ctr: CTR %
+        ads_facebook_view.cpa: Cost/Conv
+        ads_facebook_view.freq: Frequency
       listen:
-        date_start: ads_facebook.date_date
-        account_id: ads_facebook.account_id
+        date_start: ads_facebook_view.date_date
+        account_id: ads_facebook_view.account_id
 
     - name: facebook_adsets_perfomance_data_table
       title: Facebook Adsets Perfomance Data Table
       type: table
       model: template_project
-      explore: ads_facebook
-      dimensions: [ads_facebook.adset_name]
-      measures: [ads_facebook.impressions, ads_facebook.click, ads_facebook.cpc, ads_facebook.ctr,
-        ads_facebook.conversions, ads_facebook.cpa, ads_facebook.cpm, ads_facebook.cpp,
-        ads_facebook.cost, ads_facebook.freq]
-      sorts: [ads_facebook.impressions desc]
+      explore: ads_facebook_view
+      dimensions: [ads_facebook_view.adset_name]
+      measures: [ads_facebook_view.impressions, ads_facebook_view.click, ads_facebook_view.cpc, ads_facebook_view.ctr,
+        ads_facebook_view.conversions, ads_facebook_view.cpa, ads_facebook_view.cpm, ads_facebook_view.cpp,
+        ads_facebook_view.cost, ads_facebook_view.freq]
+      sorts: [ads_facebook_view.impressions desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -125,25 +125,25 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        ads_facebook.click: Clicks
-        ads_facebook.cpc: avg CPC
-        ads_facebook.ctr: CTR %
-        ads_facebook.cpa: Cost/Conv
-        ads_facebook.freq: Frequency
+        ads_facebook_view.click: Clicks
+        ads_facebook_view.cpc: avg CPC
+        ads_facebook_view.ctr: CTR %
+        ads_facebook_view.cpa: Cost/Conv
+        ads_facebook_view.freq: Frequency
       listen:
-        date_start: ads_facebook.date_date
-        account_id: ads_facebook.account_id
+        date_start: ads_facebook_view.date_date
+        account_id: ads_facebook_view.account_id
 
     - name: facebook_ads_perfomance_data_table
       title: Facebook Ads Perfomance Data Table
       type: table
       model: template_project
-      explore: ads_facebook
-      dimensions: [ads_facebook.ad_name]
-      measures: [ads_facebook.impressions, ads_facebook.click, ads_facebook.cpc, ads_facebook.ctr,
-        ads_facebook.conversions, ads_facebook.cpa, ads_facebook.cpm, ads_facebook.cpp,
-        ads_facebook.cost, ads_facebook.freq]
-      sorts: [ads_facebook.impressions desc]
+      explore: ads_facebook_view
+      dimensions: [ads_facebook_view.ad_name]
+      measures: [ads_facebook_view.impressions, ads_facebook_view.click, ads_facebook_view.cpc, ads_facebook_view.ctr,
+        ads_facebook_view.conversions, ads_facebook_view.cpa, ads_facebook_view.cpm, ads_facebook_view.cpp,
+        ads_facebook_view.cost, ads_facebook_view.freq]
+      sorts: [ads_facebook_view.impressions desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -180,11 +180,11 @@
       totals_color: "#808080"
       series_types: {}
       series_labels:
-        ads_facebook.click: Clicks
-        ads_facebook.cpc: avg CPC
-        ads_facebook.ctr: CTR %
-        ads_facebook.cpa: Cost/Conv
-        ads_facebook.freq: Frequency
+        ads_facebook_view.click: Clicks
+        ads_facebook_view.cpc: avg CPC
+        ads_facebook_view.ctr: CTR %
+        ads_facebook_view.cpa: Cost/Conv
+        ads_facebook_view.freq: Frequency
       listen:
-        date_start: ads_facebook.date_date
-        account_id: ads_facebook.account_id
+        date_start: ads_facebook_view.date_date
+        account_id: ads_facebook_view.account_id
