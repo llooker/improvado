@@ -402,7 +402,7 @@
         date_start: campaign_bindings.date_date
 
     - name: pie_chart_cost
-      title: Cost Breakdown by Platforms
+      title: Cost Breakdown by Platform
       type: looker_pie
       model: template_project_campaigns
       explore: campaign_bindings
@@ -459,7 +459,7 @@
         date_start: campaign_bindings.date_date
 
     - name: pie_chart_conv
-      title: Conversion Breakdown by Platforms
+      title: Conversion Breakdown by Platform
       type: looker_pie
       model: template_project_campaigns
       explore: campaign_bindings
@@ -516,7 +516,7 @@
         date_start: campaign_bindings.date_date
 
     - name: campaign_lvl_data_table
-      title: Campaign Level Metrics by Platforms
+      title: Campaign Level Metrics by Platform
       type: table
       model: template_project_campaigns
       explore: campaign_bindings
