@@ -119,19 +119,6 @@ view: adsets_youtube {
     value_format_name: usd
   }
 
-  dimension: image_file {
-    sql: ('http://c86og3avv551mqtcy2adcf845a.wpengine.netdna-cdn.com/wp-content/uploads/2016/07/disruptive-grey.svg');;
-  }
-
-  dimension: product_image {
-    sql: ${image_file} ;;
-    html: <img src="http://c86og3avv551mqtcy2adcf845a.wpengine.netdna-cdn.com/wp-content/uploads/2016/07/disruptive-grey.svg" width="200" height="200"/>;;
-  }
-
-  dimension: title {
-    sql: ('Youtube Campaign Perfomance') ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [adset_name, campaign_name]

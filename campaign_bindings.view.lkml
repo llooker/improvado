@@ -131,19 +131,6 @@ view: campaign_bindings {
     value_format_name: usd
   }
 
-  dimension: image_file {
-    sql: ('http://c86og3avv551mqtcy2adcf845a.wpengine.netdna-cdn.com/wp-content/uploads/2016/07/disruptive-grey.svg');;
-  }
-
-  dimension: product_image {
-    sql: ${image_file} ;;
-    html: <img src="http://c86og3avv551mqtcy2adcf845a.wpengine.netdna-cdn.com/wp-content/uploads/2016/07/disruptive-grey.svg" width="200" height="200"/>;;
-  }
-
-  dimension: title {
-    sql: ('Rev Report Campaign Level') ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [product_name, binding_name]

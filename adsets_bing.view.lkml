@@ -124,19 +124,6 @@ view: adsets_bing {
     value_format_name: usd
   }
 
-  dimension: image_file {
-    sql: ('http://c86og3avv551mqtcy2adcf845a.wpengine.netdna-cdn.com/wp-content/uploads/2016/07/disruptive-grey.svg');;
-  }
-
-  dimension: product_image {
-    sql: ${image_file} ;;
-    html: <img src="http://c86og3avv551mqtcy2adcf845a.wpengine.netdna-cdn.com/wp-content/uploads/2016/07/disruptive-grey.svg" width="200" height="200"/>;;
-  }
-
-  dimension: title {
-    sql: ('Bing Ad Group Perfomance') ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [campaign_name, adset_name]
