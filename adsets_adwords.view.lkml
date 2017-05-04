@@ -1,8 +1,9 @@
 view: adsets_adwords {
-  sql_table_name: public.adsets_103_adwords ;;
+  sql_table_name: public.adsets_raw_table_adwords ;;
 
   dimension: account_id {
     type: string
+    # hidden: yes
     sql: ${TABLE}.account_id ;;
   }
 
@@ -58,6 +59,11 @@ view: adsets_adwords {
     ]
     convert_tz: no
     sql: ${TABLE}.date ;;
+  }
+
+  dimension: date_yyyymmdd {
+    type: string
+    sql: ${TABLE}.date_yyyymmdd ;;
   }
 
   dimension: imps {
@@ -136,6 +142,6 @@ view: adsets_adwords {
 
   measure: count {
     type: count
-    drill_fields: [campaign_name, adset_name]
+    drill_fields: [adset_name, campaign_name, accounts.data_source_name, accounts.remote_account_id, accounts.remote_account_name]
   }
 }

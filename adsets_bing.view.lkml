@@ -1,8 +1,9 @@
 view: adsets_bing {
-  sql_table_name: public.adsets_103_bing ;;
+  sql_table_name: public.adsets_raw_table_bing ;;
 
   dimension: account_id {
     type: string
+    # hidden: yes
     sql: ${TABLE}.account_id ;;
   }
 
@@ -60,9 +61,19 @@ view: adsets_bing {
     sql: ${TABLE}.date ;;
   }
 
+  dimension: date_yyyymmdd {
+    type: string
+    sql: ${TABLE}.date_yyyymmdd ;;
+  }
+
   dimension: imps {
     type: number
     sql: ${TABLE}.imps ;;
+  }
+
+  dimension: purchase {
+    type: number
+    sql: ${TABLE}.purchase ;;
   }
 
   dimension: revenue {
@@ -73,6 +84,11 @@ view: adsets_bing {
   dimension: spend {
     type: number
     sql: ${TABLE}.spend ;;
+  }
+
+  dimension: views {
+    type: number
+    sql: ${TABLE}.views ;;
   }
 
   measure: cost {
@@ -126,6 +142,6 @@ view: adsets_bing {
 
   measure: count {
     type: count
-    drill_fields: [campaign_name, adset_name]
+    drill_fields: [adset_name, campaign_name, accounts.data_source_name, accounts.remote_account_id, accounts.remote_account_name]
   }
 }

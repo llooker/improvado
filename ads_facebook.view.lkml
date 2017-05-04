@@ -1,8 +1,9 @@
-view: ads_facebook_view {
-  sql_table_name: public.ads_103_facebook_view ;;
+view: ads_facebook {
+  sql_table_name: public.ads_raw_table_facebook ;;
 
   dimension: account_id {
     type: string
+    # hidden: yes
     sql: ${TABLE}.account_id ;;
   }
 
@@ -73,6 +74,11 @@ view: ads_facebook_view {
     ]
     convert_tz: no
     sql: ${TABLE}.date ;;
+  }
+
+  dimension: date_yyyymmdd {
+    type: string
+    sql: ${TABLE}.date_yyyymmdd ;;
   }
 
   dimension: frequency {
@@ -209,6 +215,11 @@ view: ads_facebook_view {
     type: number
     sql: ${TABLE}.views ;;
   }
+
+  measure: count {
+    type: count
+    drill_fields: [detail*]
+  }
   measure: cost {
     type: sum
     sql: ${spend} ;;
@@ -295,8 +306,16 @@ view: ads_facebook_view {
     value_format_name: usd
   }
 
-  measure: count {
-    type: count
-    drill_fields: [campaign_name, adset_name, ad_name]
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      campaign_name,
+      adset_name,
+      ad_name,
+      accounts.data_source_name,
+      accounts.remote_account_id,
+      accounts.remote_account_name
+    ]
   }
 }

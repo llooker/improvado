@@ -1,8 +1,9 @@
 view: keywords_adwords {
-  sql_table_name: public.keywords_103_adwords ;;
+  sql_table_name: public.keywords_raw_table_adwords ;;
 
   dimension: account_id {
     type: string
+    # hidden: yes
     sql: ${TABLE}.account_id ;;
   }
 
@@ -55,6 +56,11 @@ view: keywords_adwords {
     sql: ${TABLE}.date ;;
   }
 
+  dimension: date_yyyymmdd {
+    type: string
+    sql: ${TABLE}.date_yyyymmdd ;;
+  }
+
   dimension: imps {
     type: number
     sql: ${TABLE}.imps ;;
@@ -70,9 +76,9 @@ view: keywords_adwords {
     sql: ${TABLE}.keyword_name ;;
   }
 
-  dimension: labels {
+  dimension: kw_labels {
     type: string
-    sql: ${TABLE}.labels ;;
+    sql: ${TABLE}.kw_labels ;;
   }
 
   dimension: match_type {
@@ -81,7 +87,7 @@ view: keywords_adwords {
   }
 
   dimension: quality_score {
-    type: number
+    type: string
     sql: ${TABLE}.quality_score ;;
   }
 
@@ -99,7 +105,6 @@ view: keywords_adwords {
     type: number
     sql: ${TABLE}.views ;;
   }
-
 
   measure: cost {
     type: sum
@@ -150,8 +155,21 @@ view: keywords_adwords {
     value_format_name: usd
   }
 
+
   measure: count {
     type: count
-    drill_fields: [adset_name, campaign_name, keyword_name]
+    drill_fields: [detail*]
+  }
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      campaign_name,
+      adset_name,
+      keyword_name,
+      accounts.data_source_name,
+      accounts.remote_account_id,
+      accounts.remote_account_name
+    ]
   }
 }

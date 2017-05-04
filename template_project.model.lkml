@@ -15,4 +15,4 @@ explore: adsets_bing {}
 
 explore: keywords_adwords {}
 
-explore: ads_facebook_view {}
+explore: ads_facebook {}

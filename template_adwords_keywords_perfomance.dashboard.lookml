@@ -10,7 +10,7 @@
       type: date_filter
       explore: keywords_adwords
       field: keywords_adwords.date_date
-      default_value: 2017/02/01 to 2017/02/15
+      default_value: 2017/01/01 to 2017/01/15
 
     - name: account_id
       type: string_filter
