@@ -11,15 +11,15 @@
   filters:
     - name: date_start
       type: date_filter
-      explore: adset_youtube
-      field: adset_youtube.date_date
+      explore: adsets_youtube
+      field: adsets_youtube.date_date
       default_value: 2017/02/01 to 2017/02/15
 
     - name: account_id
       type: string_filter
-      explore: adset_youtube
+      explore: adsets_youtube
       model: template_project
-      field: adset_youtube.account_id
+      field: adsets_youtube.account_id
       default_value: '4508191176'
 
   elements:
