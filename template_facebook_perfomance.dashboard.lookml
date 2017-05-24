@@ -14,14 +14,14 @@
       type: date_filter
       explore: ads_facebook
       field: ads_facebook.date_date
-      default_value: 2017/02/01 to 2017/02/15
+      default_value: 2017/04/01 to 2017/05/14
 
     - name: account_id
       type: string_filter
       explore: ads_facebook
       model: template_project
       field: ads_facebook.account_id
-      default_value: act_10150833513845892
+      default_value: act_000000000251
 
   elements:
     - name: facebook_campaign_perfomance_data_table

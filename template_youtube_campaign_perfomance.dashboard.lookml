@@ -13,14 +13,14 @@
       type: date_filter
       explore: adsets_youtube
       field: adsets_youtube.date_date
-      default_value: 2017/02/01 to 2017/02/15
+      default_value: 2017/05/03 to 2017/05/14
 
     - name: account_id
       type: string_filter
       explore: adsets_youtube
       model: template_project
       field: adsets_youtube.account_id
-      default_value: '4508191176'
+      default_value: '000000000027'
 
   elements:
     - name: chart_convs_clicks

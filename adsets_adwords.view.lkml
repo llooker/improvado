@@ -3,7 +3,6 @@ view: adsets_adwords {
 
   dimension: account_id {
     type: string
-    # hidden: yes
     sql: ${TABLE}.account_id ;;
   }
 
@@ -90,7 +89,6 @@ view: adsets_adwords {
     type: number
     sql: ${TABLE}.views ;;
   }
-
   measure: cost {
     type: sum
     sql: ${spend} ;;
@@ -139,9 +137,8 @@ view: adsets_adwords {
     sql: ${cost}::float/NULLIF(${click},0) ;;
     value_format_name: usd
   }
-
   measure: count {
     type: count
-    drill_fields: [adset_name, campaign_name, accounts.data_source_name, accounts.remote_account_id, accounts.remote_account_name]
+    drill_fields: [campaign_name, adset_name]
   }
 }

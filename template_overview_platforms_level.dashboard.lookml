@@ -16,13 +16,13 @@
       type: date_filter
       explore: campaign_bindings
       field: campaign_bindings.date_date
-      default_value: 2017/02/01 to 2017/02/15
+      default_value: 2017/04/01 to 2017/05/14
 
   elements:
     - name: total_spent
       title: Total Spent
       type: single_value
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       measures: [campaign_bindings.cost]
       sorts: [campaign_bindings.cost desc]
@@ -88,7 +88,7 @@
     - name: total_clicks
       title: Total Clicks
       type: single_value
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       measures: [campaign_bindings.clicks]
       limit: '500'
@@ -153,7 +153,7 @@
     - name: total_impressions
       title: Total Impressions
       type: single_value
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       measures: [campaign_bindings.impressions]
       limit: '500'
@@ -218,7 +218,7 @@
     - name: total_conversions
       title: Total Conversions
       type: single_value
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       measures: [campaign_bindings.conversions]
       limit: '500'
@@ -283,7 +283,7 @@
     - name: total_cpa
       title: Totak CPA
       type: single_value
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       measures: [campaign_bindings.cpa]
       limit: '500'
@@ -348,7 +348,7 @@
     - name: chart_convs_clicks
       title: Conversions & Clicks by Day
       type: looker_line
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       dimensions: [campaign_bindings.date_date]
       fill_fields: [campaign_bindings.date_date]
@@ -404,7 +404,7 @@
     - name: pie_chart_cost
       title: Cost Breakdown by Platform
       type: looker_pie
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       dimensions: [campaign_bindings.product_name]
       measures: [campaign_bindings.cost]
@@ -461,7 +461,7 @@
     - name: pie_chart_conv
       title: Conversion Breakdown by Platform
       type: looker_pie
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       dimensions: [campaign_bindings.product_name]
       measures: [campaign_bindings.conversions]
@@ -518,7 +518,7 @@
     - name: campaign_lvl_data_table
       title: Campaign Level Metrics by Platform
       type: table
-      model: template_project_campaigns
+      model: template_project
       explore: campaign_bindings
       dimensions: [campaign_bindings.product_name]
       measures: [campaign_bindings.cost, campaign_bindings.impressions,

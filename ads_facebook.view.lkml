@@ -3,7 +3,6 @@ view: ads_facebook {
 
   dimension: account_id {
     type: string
-    # hidden: yes
     sql: ${TABLE}.account_id ;;
   }
 
@@ -215,11 +214,6 @@ view: ads_facebook {
     type: number
     sql: ${TABLE}.views ;;
   }
-
-  measure: count {
-    type: count
-    drill_fields: [detail*]
-  }
   measure: cost {
     type: sum
     sql: ${spend} ;;
@@ -307,15 +301,8 @@ view: ads_facebook {
   }
 
 
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      campaign_name,
-      adset_name,
-      ad_name,
-      accounts.data_source_name,
-      accounts.remote_account_id,
-      accounts.remote_account_name
-    ]
+  measure: count {
+    type: count
+    drill_fields: [campaign_name, adset_name, ad_name]
   }
 }

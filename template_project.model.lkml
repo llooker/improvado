@@ -6,6 +6,7 @@ include: "template_youtube_campaign_perfomance.dashboard.lookml"
 include: "template_adwords_keywords_perfomance.dashboard.lookml"
 include: "template_bing_adgroup_perfomance.dashboard.lookml"
 include: "template_facebook_perfomance.dashboard.lookml"
+include: "template_overview_platforms_level.dashboard.lookml"
 
 explore: adsets_adwords {}
 
@@ -16,3 +17,5 @@ explore: adsets_bing {}
 explore: keywords_adwords {}
 
 explore: ads_facebook {}
+
+explore: campaign_bindings {}

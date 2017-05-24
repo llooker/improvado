@@ -3,7 +3,6 @@ view: keywords_adwords {
 
   dimension: account_id {
     type: string
-    # hidden: yes
     sql: ${TABLE}.account_id ;;
   }
 
@@ -155,21 +154,8 @@ view: keywords_adwords {
     value_format_name: usd
   }
 
-
   measure: count {
     type: count
-    drill_fields: [detail*]
-  }
-
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      campaign_name,
-      adset_name,
-      keyword_name,
-      accounts.data_source_name,
-      accounts.remote_account_id,
-      accounts.remote_account_name
-    ]
+    drill_fields: [campaign_name, keyword_name, adset_name]
   }
 }

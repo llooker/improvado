@@ -10,14 +10,14 @@
       type: date_filter
       explore: keywords_adwords
       field: keywords_adwords.date_date
-      default_value: 2017/01/01 to 2017/01/15
+      default_value: 2017/04/01 to 2017/05/14
 
     - name: account_id
       type: string_filter
       explore: keywords_adwords
       model: template_project
       field: keywords_adwords.account_id
-      default_value: '4508191176'
+      default_value: '000000000390'
 
   elements:
     - name: adwords_keywords_perfomance_data_table

@@ -1,5 +1,5 @@
 view: campaign_bindings {
-  sql_table_name: public.metrics_a5b355314604983269440e5259062d62_campaign_bindings ;;
+  sql_table_name: public.campaigns_mapped_table_f23bb44f84a2a1fe ;;
 
   dimension: binding_id {
     type: number
@@ -26,6 +26,11 @@ view: campaign_bindings {
     sql: ${TABLE}.conv ;;
   }
 
+  dimension: data_source_key {
+    type: string
+    sql: ${TABLE}.data_source_key ;;
+  }
+
   dimension_group: date {
     type: time
     timeframes: [
@@ -38,6 +43,11 @@ view: campaign_bindings {
     ]
     convert_tz: no
     sql: ${TABLE}.date ;;
+  }
+
+  dimension: date_yyyymmdd {
+    type: string
+    sql: ${TABLE}.date_yyyymmdd ;;
   }
 
   dimension: impres {
@@ -58,6 +68,21 @@ view: campaign_bindings {
   dimension: product_name {
     type: string
     sql: ${TABLE}.product_name ;;
+  }
+
+  dimension: product_segment {
+    type: string
+    sql: ${TABLE}.product_segment ;;
+  }
+
+  dimension: remote_account_id {
+    type: string
+    sql: ${TABLE}.remote_account_id ;;
+  }
+
+  dimension: remote_campaign_id {
+    type: string
+    sql: ${TABLE}.remote_campaign_id ;;
   }
 
   dimension: revenue {
@@ -131,8 +156,9 @@ view: campaign_bindings {
     value_format_name: usd
   }
 
+
   measure: count {
     type: count
-    drill_fields: [product_name, binding_name]
+    drill_fields: [binding_name, product_name]
   }
 }

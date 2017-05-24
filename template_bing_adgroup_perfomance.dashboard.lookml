@@ -13,14 +13,14 @@
       type: date_filter
       explore: adset_bing
       field: adset_bing.date_date
-      default_value: 2017/02/01 to 2017/02/15
+      default_value: 2017/04/01 to 2017/05/14
 
     - name: account_id
       type: string_filter
       explore: adset_bing
       model: template_project
       field: adset_bing.account_id
-      default_value: '31003674'
+      default_value: '000000000120'
 
   elements:
     - name: chart_convs_clicks
