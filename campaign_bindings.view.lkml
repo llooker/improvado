@@ -95,6 +95,35 @@ view: campaign_bindings {
     sql: ${TABLE}.spent ;;
   }
 
+####################################################################################
+#  dimension: timeframe {
+#    view_label: "Data Tool"
+#    sql: CASE
+#          WHEN {% parameter timeframe_filter %} = 'Daily' THEN ${date_date}::varchar
+#          WHEN {% parameter timeframe_filter %} = 'Weekly' THEN ${date_week}
+#          WHEN {% parameter timeframe_filter %} = 'Monthly' THEN ${date_month}
+#        END ;;
+#    label_from_parameter: timeframe_filter
+#    drill_fields: [product_name, binding_name]
+#  }
+####################################################################################
+
+  dimension: segment {
+    description: "Use in conjuction with the Segment Selector"
+    primary_key: yes
+    type: string
+    sql:
+      CASE
+        WHEN {% parameter segment_selector %} = 'binding_name' THEN
+        ${binding_name}
+        WHEN {% parameter segment_selector %} = 'product_name' THEN
+        ${product_name}
+      ELSE
+        NULL
+    END ;;
+    label_from_parameter: segment_selector
+  }
+
   measure: cost {
     type: sum
     sql: ${spent} ;;
@@ -134,13 +163,13 @@ view: campaign_bindings {
 
   measure: cpa {
     type: number
-    sql: ${cost}::float/NULLIF(${conversions},0) ;;
+    sql: ${cost}/NULLIF(${conversions},0) ;;
     value_format_name: usd_0
   }
 
   measure: ctr {
     type: number
-    sql: ${clicks}::float/NULLIF(${impressions},0) ;;
+    sql: ${clicks}/NULLIF(${impressions},0) ;;
     value_format_name: percent_2
   }
 
@@ -152,10 +181,101 @@ view: campaign_bindings {
 
   measure: cpc {
     type: number
-    sql: ${cost}::float/NULLIF(${clicks},0) ;;
+    sql: ${cost}/NULLIF(${clicks},0) ;;
     value_format_name: usd
   }
 
+####################################################################################
+#  parameter: timeframe_filter {
+#    view_label: "Data Tool"
+#    allowed_value: { value: "Daily" }
+#    allowed_value: { value: "Weekly" }
+#    allowed_value: { value: "Monthly" }
+#  }
+####################################################################################
+
+  parameter: segment_selector {
+    type: string
+    allowed_value: {
+      label: "Client name"
+      value: "binding_name"
+    }
+    allowed_value: {
+      label: "Platform name"
+      value: "product_name"
+    }
+  }
+
+  parameter: metric_selector {
+    type: string
+    allowed_value: {
+      label: "Impressions"
+      value: "impressions"
+    }
+    allowed_value: {
+      label: "Clicks"
+      value: "clicks"
+    }
+    allowed_value: {
+      label: "Spend"
+      value: "cost"
+    }
+    allowed_value: {
+      label: "Click Through Rate"
+      value: "ctr"
+    }
+    allowed_value: {
+      label: "Cost Per Click"
+      value: "cpc"
+    }
+  }
+
+  measure: metric {
+    type: number
+    sql:
+      CASE
+        WHEN {% parameter metric_selector %} = 'impressions' THEN
+          ${impressions}
+        WHEN {% parameter metric_selector %} = 'clicks' THEN
+          ${clicks}
+        WHEN {% parameter metric_selector %} = 'cost' THEN
+          ${cost}
+        WHEN {% parameter metric_selector %} = 'ctr' THEN
+          round(100 * ${ctr},2)
+        WHEN {% parameter metric_selector %} = 'cpc' THEN
+          round(${cpc},2)
+        ELSE
+          NULL
+      END ;;
+    html:  {% if metric_name._value contains 'cost' or metric_name._value contains 'cpc' or metric_name._value contains 'ctr' %}
+             {{ linked_value }}{{ format_symbol._value }}
+           {% else %}
+             {{ format_symbol._value }}{{ linked_value }}
+           {% endif %} ;;
+    label_from_parameter: metric_selector
+    drill_fields: [impressions, clicks, cost, ctr, cpc]
+  }
+
+  dimension: metric_name {
+    hidden: yes
+    type: string
+    sql: CASE
+          WHEN {% parameter metric_selector %} = 'cost' THEN 'cost'
+          WHEN {% parameter metric_selector %} = 'ctr' THEN 'ctr'
+          WHEN {% parameter metric_selector %} = 'cpc' THEN 'cpc'
+          ELSE NULL
+        END ;;
+  }
+
+  dimension: format_symbol {
+    hidden: yes
+    sql:
+        CASE
+          WHEN ${metric_name} = 'cost' THEN '$'
+          WHEN ${metric_name} = 'ctr' THEN '%'
+          WHEN ${metric_name} = 'cpc' THEN '$'
+        END ;;
+  }
 
   measure: count {
     type: count

@@ -10,15 +10,10 @@
   filters:
     - name: date_start
       type: date_filter
-      explore: adset_adwords
-      field: adset_adwords.date_date
       default_value: 2017/04/01 to 2017/05/14
 
     - name: account_id
       type: string_filter
-      explore: adsets_adwords
-      model: template_project
-      field: adsets_adwords.account_id
       default_value: '000000000014'
 
   elements:

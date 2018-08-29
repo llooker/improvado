@@ -14,8 +14,6 @@
   filters:
     - name: date_start
       type: date_filter
-      explore: campaign_bindings
-      field: campaign_bindings.date_date
       default_value: 2017/04/01 to 2017/05/14
 
   elements:

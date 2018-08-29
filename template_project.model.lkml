@@ -7,6 +7,9 @@ include: "template_adwords_keywords_perfomance.dashboard.lookml"
 include: "template_bing_adgroup_perfomance.dashboard.lookml"
 include: "template_facebook_perfomance.dashboard.lookml"
 include: "template_overview_platforms_level.dashboard.lookml"
+include: "template_channel_perfomance.dashboard.lookml"
+include: "template_dcm_perfomance.dashboard.lookml"
+include: "template_twitter_perfomance.dashboard.lookml"
 
 explore: adsets_adwords {}
 
@@ -19,3 +22,9 @@ explore: keywords_adwords {}
 explore: ads_facebook {}
 
 explore: campaign_bindings {}
+
+explore: creatives_raw_table_dcm {}
+
+explore: organic_tweets_raw_table_twitter {}
+
+explore: promoted_tweets_raw_table_twitter {}
