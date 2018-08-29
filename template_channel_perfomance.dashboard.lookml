@@ -1,5 +1,5 @@
 - dashboard: template_channel_perfomance
-  title: Channel Perfomance Template
+  title: Template Channel Perfomance
   layout: newspaper
 
   filters:

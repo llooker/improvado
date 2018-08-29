@@ -1,5 +1,5 @@
 - dashboard: template_twitter_perfomance
-  title: The Twitter Perfomance Template
+  title: Template Twitter Perfomance
   layout: newspaper
 
   filters:

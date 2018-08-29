@@ -1,5 +1,5 @@
 - dashboard: template_dcm_perfomance
-  title: The DCM Perfomance Template
+  title: Template DCM Perfomance
   layout: newspaper
 
   filters:
