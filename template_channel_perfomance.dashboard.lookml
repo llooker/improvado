@@ -1,5 +1,5 @@
 - dashboard: template_channel_perfomance
-  title: Template Channel Perfomance
+  title: Template Agency Command Center
   layout: newspaper
 
   filters:

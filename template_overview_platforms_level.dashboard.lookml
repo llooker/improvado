@@ -14,7 +14,7 @@
   filters:
     - name: date_start
       type: date_filter
-      default_value: 2017/04/01 to 2017/05/14
+      default_value: 2016/08/01 to 2017/03/14
 
   elements:
     - name: total_spent
