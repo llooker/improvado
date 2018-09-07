@@ -248,7 +248,7 @@
     name: Area chart by campaign name
     model: template_project
     explore: creatives_raw_table_dcm
-    type: looker_area
+    type: looker_line
     fields:
     - creatives_raw_table_dcm.campaign_name
     - creatives_raw_table_dcm.metric

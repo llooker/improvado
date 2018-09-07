@@ -182,7 +182,7 @@
     name: Organic Tweets by Impressions
     model: template_project
     explore: organic_tweets_raw_table_twitter
-    type: looker_area
+    type: looker_line
     fields:
     - organic_tweets_raw_table_twitter.organic_tweet_id
     - organic_tweets_raw_table_twitter.imps
