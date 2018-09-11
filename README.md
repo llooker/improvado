@@ -1,5 +1,5 @@
 # Description
-[Improvado’s](http://improvado.io/) cross-channel advertising analysis block is ideal for any Looker user who would like to compare performance of 2 or more ad channels.
+[Improvado’s](http://improvado.io/) Blocks make it easy for marketing teams and marketing agencies to build a comprehensive marketing analytics dashboard to understand their performance on a platform, cross-platform and agency levels.
 
 Improvado consolidates all the advertising data you need in a centralized database, so that it can be explored via one convenient Looker block.
 
