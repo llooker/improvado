@@ -1,4 +1,5 @@
 connection: "postgress_improvado"
+connection: "improvado_ad_preview"
 
 include: "*.view.lkml"                                   # include all views in this project
 include: "template_adwords_account_perfomance.dashboard.lookml"  # include all dashboards in this project
@@ -10,6 +11,9 @@ include: "template_overview_platforms_level.dashboard.lookml"
 include: "template_channel_perfomance.dashboard.lookml"
 include: "template_dcm_perfomance.dashboard.lookml"
 include: "template_twitter_perfomance.dashboard.lookml"
+include: "template_ad_preview.dashboard.lookml"
+
+explore: ads_creative_with_preview_raw_table_facebook {}
 
 explore: adsets_adwords {}
 

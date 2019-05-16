@@ -59,6 +59,11 @@ Dashboard: YouTube Campaign Analytics Dashboard
 Template Name: template_youtube_campaign
 View: adsets_youtube
 
+Improvado Ad Preview Block
+Dashboard: Ad Preview Dashboard
+Template Name: template_ad_preview
+View: ads_creative_with_preview_raw_table_facebook
+
 # Learn more:
 [Introduction Blog Post](https://looker.com/blog/improvado-looker-ad-platforms-block),
 [Blocks Directory](https://looker.com/looker-blocks/partner/advertising-analytics-by-improvado),
