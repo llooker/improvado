@@ -1,5 +1,5 @@
 connection: "postgress_improvado"
-connection: "improvado_ad_preview"
+# connection: "improvado_ad_preview"
 
 include: "*.view.lkml"                                   # include all views in this project
 include: "template_adwords_account_perfomance.dashboard.lookml"  # include all dashboards in this project
